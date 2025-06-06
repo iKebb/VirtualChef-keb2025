@@ -1,0 +1,5 @@
+huevos, 6, unidades
+patatas, 4, unidades
+cebollas, 2, unidades
+aceite, 150, mililitros
+sal, 500, gramos

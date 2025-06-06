@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Tortilla española",
+    "ingredients": [
+      {
+        "name": "huevos",
+        "quantity": 4,
+        "unit": "unidades"
+      },
+      {
+        "name": "patatas",
+        "quantity": 2,
+        "unit": "unidades"
+      },
+      {
+        "name": "cebollas",
+        "quantity": 1,
+        "unit": "unidad"
+      },
+      {
+        "name": "aceite",
+        "quantity": 50,
+        "unit": "ml"
+      },
+      {
+        "name": "sal",
+        "quantity": 3,
+        "unit": "gramos"
+      }
+    ],
+    "instructions": "Pela y corta las patatas y la cebolla. Fríelas en aceite hasta que estén blandas. Bate los huevos, mezcla con las patatas y cebolla, añade sal y cocina en sartén por ambos lados hasta cuajar."
+  },
+  {
+    "name": "Ensalada César",
+    "ingredients": [
+      {
+        "name": "Lechuga",
+        "quantity": 1,
+        "unit": "unidad"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": 200,
+        "unit": "gramos"
+      },
+      {
+        "name": "Queso parmesano",
+        "quantity": 50,
+        "unit": "gramos"
+      },
+      {
+        "name": "Crutones",
+        "quantity": 50,
+        "unit": "gramos"
+      },
+      {
+        "name": "Aderezo César",
+        "quantity": 30,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Lava y trocea la lechuga. Cocina el pollo y córtalo en tiras. Mezcla la lechuga con el pollo, crutones y queso. Añade el aderezo César y mezcla bien antes de servir."
+  },
+  {
+    "name": "Sopa de lentejas",
+    "ingredients": [
+      {
+        "name": "Lentejas",
+        "quantity": 200,
+        "unit": "gramos"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": 1,
+        "unit": "unidad"
+      },
+      {
+        "name": "Cebolla",
+        "quantity": 1,
+        "unit": "unidad"
+      },
+      {
+        "name": "Ajo",
+        "quantity": 2,
+        "unit": "unidades"
+      },
+      {
+        "name": "Caldo de verduras",
+        "quantity": 1,
+        "unit": "litro"
+      }
+    ],
+    "instructions": "Pica la cebolla, zanahoria y ajo. Sofríe en una olla, añade las lentejas y el caldo. Cocina a fuego medio hasta que las lentejas estén tiernas."
+  }
+]
