@@ -7,11 +7,8 @@
 
 using json = nlohmann::json;
 
-/// @brief Class representing a recipe with its name, ingredients, and preparation steps. Its atributes are:
-/// - `recipe_name`: The name of the recipe.
-/// - `ingredients`: A map containing ingredient names and their respective quantities.
-/// - `ingredients`: Quantities are represented in spanish units, such as: [unidad/es], [mililitros], [cucharadas], [tazas], [onzas].
-/// - `steps_preparation`: A string containing the steps to prepare the recipe.
+// Principal class to represent recipes
+// => Encapsulates recipe data on objects
 class Recipe
 {
 public:
@@ -19,7 +16,6 @@ public:
   std::map<std::string, double> ingredients;
   std::string steps_preparation;
 
-  // Constructor
   Recipe(const std::string &recipe_name,
          const std::map<std::string, double> &ingredients,
          const std::string &steps_preparation)
@@ -28,35 +24,8 @@ public:
         steps_preparation(steps_preparation) {}
 };
 
-/// @brief Class to manage recipes, including loading from a file, showing recipes, and managing ingredients.
-class recipeManager
-{
-private:
-  std::vector<Recipe> recipes;
-
-public:
-  void showRecipes();
-  void showAllRecipes();
-  void loadRecipesFromFile();
-  void mainMenu();
-
-  void loadRecipesFromJson(const std::string &filename)
-  {
-    std::ifstream recfile("data/recipes.json");
-    if (!recfile.is_open())
-    {
-      std::cerr << "Could not open the file: " << filename << std::endl;
-      return;
-    }
-
-    json j;
-    recfile >> j;
-  };
-
-  class ingredientManager
-  {
-  };
-};
+// Class to manage ingredients (basic structure)
+// => Encapsulates ingredient data on legible objects
 class Ingredient
 {
 public:
@@ -64,17 +33,66 @@ public:
   double quantity;
   std::string unit;
 
-  // class constructor
-  Ingredient(const std::string &name,
-             double quantity,
-             const std::string &unit)
-      : name(name),
-        quantity(quantity),
-        unit(unit) {}
+  Ingredient(const std::string &name, double quantity, const std::string &unit)
+      : name(name), quantity(quantity), unit(unit) {}
 };
 
-int main()
+// Recipe Manager class
+// => Manages collections of recipes and provides methods to manipulate'em
+class RecipeManager
 {
-  // You can now create Recipe and Ingredient objects here
-  return 0;
-}
+private:
+  // Collection of recipes
+  std::vector<Recipe> recipes;
+
+public:
+  // => shows avilable recipes based on ingredients loaded.
+  void showRecipes() const;
+
+  // => shows all recipes loaded in the manager
+  void showAllRecipes() const;
+
+  // => loads recipes from json on program startup
+  void loadRecipesFromJson(const std::string &filename);
+};
+
+void RecipeManager::loadRecipesFromJson(const std::string &filename)
+{
+
+  /* glosary:
+  - recfile => Recipe file
+  - recipes => Our collection of recipes seen above
+  - j => json object to parse the file
+  - loadRec => Each recipe loaded from the json file to the program
+  - ingrJson => Each ingredient loaded from the json file to the program
+  - Qty, Qties => Quantity, Quantities => ingrQty means the quantity of the ingredient
+  */
+  std::ifstream recfile(filename);
+  if (!recfile.is_open())
+  {
+    std::cerr << "Could not open the file: " << filename << std::endl;
+    return;
+  }
+
+  json j;
+  recfile >> j;
+
+  recipes.clear();
+
+  for (const auto &loadRec : j)
+  {
+    std::string recipeName = loadRec["name"];
+    std::string recipeSteps = loadRec["instructions"];
+
+    std::map<std::string, double> recIngrMap;
+
+    for (const auto &ingrJson : loadRec["ingredients"])
+    {
+      std::string ingrName = ingrJson["name"];
+      double ingrQty = ingrJson["quantity"];
+      recIngrMap[ingrName] = ingrQty;
+    }
+
+    recipes.emplace_back(recipeName, recIngrMap, recipeSteps);
+  }
+};
