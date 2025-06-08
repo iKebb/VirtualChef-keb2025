@@ -1,95 +1,757 @@
 [
   {
-    "name": "Tortilla española",
+    "id": 1,
+    "name": "Spanish Omelette",
     "ingredients": [
       {
-        "name": "huevos",
+        "name": "eggs",
         "quantity": 4,
-        "unit": "unidades"
+        "unit": "units"
       },
       {
-        "name": "patatas",
+        "name": "potatoes",
         "quantity": 2,
-        "unit": "unidades"
+        "unit": "units"
       },
       {
-        "name": "cebollas",
+        "name": "onions",
         "quantity": 1,
-        "unit": "unidad"
+        "unit": "unit"
       },
       {
-        "name": "aceite",
+        "name": "oil",
         "quantity": 50,
         "unit": "ml"
       },
       {
-        "name": "sal",
+        "name": "salt",
         "quantity": 3,
-        "unit": "gramos"
+        "unit": "grams"
       }
     ],
-    "instructions": "Pela y corta las patatas y la cebolla. Fríelas en aceite hasta que estén blandas. Bate los huevos, mezcla con las patatas y cebolla, añade sal y cocina en sartén por ambos lados hasta cuajar."
+    "instructions": "Peel and cut potatoes and onion. Fry in oil until soft. Beat eggs, mix with potatoes and onion, add salt, and cook on both sides until set."
   },
   {
-    "name": "Ensalada César",
+    "id": 2,
+    "name": "Caesar Salad",
     "ingredients": [
       {
-        "name": "Lechuga",
+        "name": "lettuce",
         "quantity": 1,
-        "unit": "unidad"
+        "unit": "unit"
       },
       {
-        "name": "Pechuga de pollo",
+        "name": "chicken breast",
         "quantity": 200,
-        "unit": "gramos"
+        "unit": "grams"
       },
       {
-        "name": "Queso parmesano",
+        "name": "parmesan cheese",
         "quantity": 50,
-        "unit": "gramos"
+        "unit": "grams"
       },
       {
-        "name": "Crutones",
+        "name": "croutons",
         "quantity": 50,
-        "unit": "gramos"
+        "unit": "grams"
       },
       {
-        "name": "Aderezo César",
+        "name": "caesar dressing",
         "quantity": 30,
         "unit": "ml"
       }
     ],
-    "instructions": "Lava y trocea la lechuga. Cocina el pollo y córtalo en tiras. Mezcla la lechuga con el pollo, crutones y queso. Añade el aderezo César y mezcla bien antes de servir."
+    "instructions": "Wash and chop lettuce. Cook chicken and slice into strips. Mix lettuce with chicken, croutons, and cheese. Add caesar dressing and toss well before serving."
   },
   {
-    "name": "Sopa de lentejas",
+    "id": 3,
+    "name": "Lentil Soup",
     "ingredients": [
       {
-        "name": "Lentejas",
+        "name": "lentils",
         "quantity": 200,
-        "unit": "gramos"
+        "unit": "grams"
       },
       {
-        "name": "Zanahoria",
+        "name": "carrot",
         "quantity": 1,
-        "unit": "unidad"
+        "unit": "unit"
       },
       {
-        "name": "Cebolla",
+        "name": "onion",
         "quantity": 1,
-        "unit": "unidad"
+        "unit": "unit"
       },
       {
-        "name": "Ajo",
+        "name": "garlic",
         "quantity": 2,
-        "unit": "unidades"
+        "unit": "units"
       },
       {
-        "name": "Caldo de verduras",
+        "name": "vegetable broth",
         "quantity": 1,
-        "unit": "litro"
+        "unit": "liter"
       }
     ],
-    "instructions": "Pica la cebolla, zanahoria y ajo. Sofríe en una olla, añade las lentejas y el caldo. Cocina a fuego medio hasta que las lentejas estén tiernas."
+    "instructions": "Chop onion, carrot, and garlic. Sauté in a pot, add lentils and broth. Simmer over medium heat until lentils are tender."
+  },
+  {
+    "id": 4,
+    "name": "Pasta Carbonara",
+    "ingredients": [
+      {
+        "name": "spaghetti",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "bacon",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "parmesan cheese",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "black pepper",
+        "quantity": 5,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Cook pasta. Fry bacon until crispy. Mix eggs, cheese, and pepper. Toss hot pasta with bacon and egg mixture until creamy."
+  },
+  {
+    "id": 5,
+    "name": "Vegetable Stir-Fry",
+    "ingredients": [
+      {
+        "name": "broccoli",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "bell pepper",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "carrots",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "soy sauce",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "sesame oil",
+        "quantity": 15,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Heat sesame oil in a pan. Add vegetables and stir-fry for 5 minutes. Pour in soy sauce and cook until veggies are tender."
+  },
+  {
+    "id": 6,
+    "name": "Grilled Cheese Sandwich",
+    "ingredients": [
+      {
+        "name": "bread slices",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "cheddar cheese",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "butter",
+        "quantity": 20,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Spread butter on bread slices. Place cheese between slices. Grill in a pan until golden and cheese melts."
+  },
+  {
+    "id": 7,
+    "name": "Oatmeal with Milk",
+    "ingredients": [
+      {
+        "name": "oats",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "sugar",
+        "quantity": 10,
+        "unit": "grams"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 2,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Combine oats, milk, sugar, and cinnamon in a pot. Cook over low heat, stirring constantly until thickened."
+  },
+  {
+    "id": 8,
+    "name": "Tomato Pasta Sauce",
+    "ingredients": [
+      {
+        "name": "tomatoes",
+        "quantity": 400,
+        "unit": "grams"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "salt",
+        "quantity": 5,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Sauté onion and garlic in olive oil. Add chopped tomatoes and simmer until sauce thickens. Season with salt."
+  },
+  {
+    "id": 9,
+    "name": "Scrambled Eggs",
+    "ingredients": [
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "milk",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "butter",
+        "quantity": 10,
+        "unit": "grams"
+      },
+      {
+        "name": "salt",
+        "quantity": 2,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Beat eggs with milk. Melt butter in pan, pour in egg mixture and cook gently, stirring until curds form."
+  },
+  {
+    "id": 10,
+    "name": "Chicken Curry",
+    "ingredients": [
+      {
+        "name": "chicken pieces",
+        "quantity": 300,
+        "unit": "grams"
+      },
+      {
+        "name": "curry powder",
+        "quantity": 15,
+        "unit": "grams"
+      },
+      {
+        "name": "coconut milk",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "units"
+      }
+    ],
+    "instructions": "Sauté onion and garlic. Add chicken and curry powder. Pour in coconut milk and simmer until chicken is fully cooked."
+  },
+  {
+    "id": 11,
+    "name": "Fried Rice",
+    "ingredients": [
+      {
+        "name": "cooked rice",
+        "quantity": 300,
+        "unit": "grams"
+      },
+      {
+        "name": "egg",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "soy sauce",
+        "quantity": 20,
+        "unit": "ml"
+      },
+      {
+        "name": "green onions",
+        "quantity": 20,
+        "unit": "grams"
+      },
+      {
+        "name": "vegetable oil",
+        "quantity": 20,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Heat oil in a pan. Scramble egg, then add rice and stir-fry. Add soy sauce and green onions. Mix well and cook for 2 more minutes."
+  },
+  {
+    "id": 12,
+    "name": "Baked Sweet Potato",
+    "ingredients": [
+      {
+        "name": "sweet potato",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "salt",
+        "quantity": 2,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Preheat oven to 200°C. Rub sweet potato with oil and salt. Bake for 45-60 minutes until tender."
+  },
+  {
+    "id": 13,
+    "name": "Guacamole",
+    "ingredients": [
+      {
+        "name": "avocado",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "lime juice",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "onion",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "cilantro",
+        "quantity": 10,
+        "unit": "grams"
+      },
+      {
+        "name": "salt",
+        "quantity": 3,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Mash avocado in a bowl. Add lime juice, finely chopped onion, cilantro, and salt. Mix until combined."
+  },
+  {
+    "id": 14,
+    "name": "Hummus",
+    "ingredients": [
+      {
+        "name": "chickpeas",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "tahini",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "lemon juice",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 20,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Blend chickpeas, tahini, lemon juice, and garlic in a food processor. Drizzle in olive oil while blending until smooth."
+  },
+  {
+    "id": 15,
+    "name": "Avocado Toast",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "avocado",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "salt",
+        "quantity": 2,
+        "unit": "grams"
+      },
+      {
+        "name": "lemon juice",
+        "quantity": 10,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Toast bread. Mash avocado and spread on toast. Season with salt and lemon juice."
+  },
+  {
+    "id": 16,
+    "name": "Tuna Salad",
+    "ingredients": [
+      {
+        "name": "tuna",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "mayonnaise",
+        "quantity": 30,
+        "unit": "ml"
+      },
+      {
+        "name": "celery",
+        "quantity": 30,
+        "unit": "grams"
+      },
+      {
+        "name": "onion",
+        "quantity": 20,
+        "unit": "grams"
+      },
+      {
+        "name": "salt",
+        "quantity": 3,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Mix drained tuna with mayonnaise. Add finely chopped celery and onion. Season with salt and mix well."
+  },
+  {
+    "id": 17,
+    "name": "Greek Yogurt Bowl",
+    "ingredients": [
+      {
+        "name": "greek yogurt",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "honey",
+        "quantity": 20,
+        "unit": "ml"
+      },
+      {
+        "name": "granola",
+        "quantity": 30,
+        "unit": "grams"
+      },
+      {
+        "name": "berries",
+        "quantity": 50,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "In a bowl, layer greek yogurt, drizzle honey, sprinkle granola, and top with fresh berries."
+  },
+  {
+    "id": 18,
+    "name": "French Toast",
+    "ingredients": [
+      {
+        "name": "bread slices",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "milk",
+        "quantity": 50,
+        "unit": "ml"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 2,
+        "unit": "grams"
+      },
+      {
+        "name": "sugar",
+        "quantity": 10,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Whisk eggs, milk, cinnamon, and sugar. Dip bread slices in the mixture. Cook on a hot pan until golden on both sides."
+  },
+  {
+    "id": 19,
+    "name": "Vegetarian Chili",
+    "ingredients": [
+      {
+        "name": "kidney beans",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "tomato sauce",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "bell pepper",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "chili powder",
+        "quantity": 10,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Sauté onion and bell pepper. Add kidney beans, tomato sauce, and chili powder. Simmer for 20 minutes."
+  },
+  {
+    "id": 20,
+    "name": "Baked Chicken Wings",
+    "ingredients": [
+      {
+        "name": "chicken wings",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "name": "bbq sauce",
+        "quantity": 100,
+        "unit": "ml"
+      },
+      {
+        "name": "salt",
+        "quantity": 5,
+        "unit": "grams"
+      },
+      {
+        "name": "paprika",
+        "quantity": 5,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Season wings with salt and paprika. Bake at 200°C for 30-40 minutes. Toss with BBQ sauce after baking."
+  },
+  {
+    "id": 21,
+    "name": "Caprese Salad",
+    "ingredients": [
+      {
+        "name": "tomatoes",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "mozzarella cheese",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "basil",
+        "quantity": 10,
+        "unit": "grams"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 20,
+        "unit": "ml"
+      },
+      {
+        "name": "balsamic vinegar",
+        "quantity": 10,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Slice tomatoes and mozzarella. Toss with basil, olive oil, and balsamic vinegar."
+  },
+  {
+    "id": 22,
+    "name": "Black Bean Tacos",
+    "ingredients": [
+      {
+        "name": "tortillas",
+        "quantity": 4,
+        "unit": "units"
+      },
+      {
+        "name": "black beans",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "lettuce",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "tomato",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "cheese",
+        "quantity": 50,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Warm tortillas. Fill with black beans, lettuce, tomato, and cheese."
+  },
+  {
+    "id": 23,
+    "name": "Shakshuka",
+    "ingredients": [
+      {
+        "name": "tomatoes",
+        "quantity": 400,
+        "unit": "grams"
+      },
+      {
+        "name": "eggs",
+        "quantity": 4,
+        "unit": "units"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "bell pepper",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "paprika",
+        "quantity": 5,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Sauté onion and bell pepper. Add chopped tomatoes and paprika. Simmer, make wells and crack eggs into them. Cover and cook until eggs are done."
+  },
+  {
+    "id": 24,
+    "name": "Rice and Beans",
+    "ingredients": [
+      {
+        "name": "rice",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "red beans",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 20,
+        "unit": "ml"
+      }
+    ],
+    "instructions": "Sauté onion and garlic in oil. Add red beans and simmer until soft. Serve with cooked rice."
+  },
+  {
+    "id": 25,
+    "name": "Peanut Butter Banana Smoothie",
+    "ingredients": [
+      {
+        "name": "banana",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "peanut butter",
+        "quantity": 20,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "honey",
+        "quantity": 10,
+        "unit": "ml"
+      },
+      {
+        "name": "ice cubes",
+        "quantity": 100,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Blend banana, peanut butter, milk, honey, and ice cubes until smooth."
   }
 ]
