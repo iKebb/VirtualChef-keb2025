@@ -6,10 +6,16 @@
 #include <map>
 #include <vector>
 #include "imports/nlohmann/json.hpp"
-
+/*TODO list
+  TODO: manuallyAddIngredients
+  TODO: mergeIngredients
+  TODO: showAvailableRecipes
+  TODO: menu list (prob another class)
+  TODO: ui (another class lmao)
+  TODO: proper documentation
+*/
 using json = nlohmann::json;
 
-// trim text
 std::string trim(const std::string &s)
 {
   if (s.empty())
@@ -18,6 +24,8 @@ std::string trim(const std::string &s)
   size_t first = s.find_first_not_of(' ');
   size_t last = s.find_last_not_of(' ');
   return s.substr(first, last - first + 1);
+  // trim text loaded from txt or csv
+  // => "   Sasa Lele    " => "Sasa Lele"
 }
 
 class Ingredient
@@ -26,7 +34,8 @@ public:
   std::string name;
   int quantity;
   std::string unit;
-
+  // Ingredient class.
+  // myIngredient => milk, 180, ml
   Ingredient(const std::string &name, int quantity, const std::string &unit)
       : name(name), quantity(quantity), unit(unit) {}
 };
@@ -38,7 +47,8 @@ public:
   std::string recipe_name;
   std::vector<Ingredient> ingredients;
   std::string instructions;
-
+  // Recipe class.
+  // myRecipe => 658, Spanish Omelette, [{eggs 4 units}, {potatoes 2 units}, {...}], Peel potatoes and blah blah blah blah.
   Recipe(int id,
          const std::string &recipe_name,
          const std::vector<Ingredient> &ingredients,
@@ -54,9 +64,34 @@ public:
 class RecipeManager
 {
 private:
+  // vector of recipes is needed to storage, load and manage the recipes on program.
+  // vector of ingredients is also needed by the same but also for knowing what recipes we can do.
   std::vector<Recipe> recipes;
   std::vector<Ingredient> ingredients;
-
+  /* loadIngredientsFromFile
+     descriptive as hell, isn't it? loads an txt or csv file with ingredientes, so it needs this structure:
+    "name, ingredient, unit"; "name,ingredient,unit"; or if u r kind of special, "name              , ingredient, unit"
+  */
+  /* manuallyAddIngredients
+     descriptive as hell, isn't? give it an input and you have a new ingredient loaded in the program.
+   */
+  /* mergeIngredients
+     considering deleting this bc manuallyAddIngredients can do the same thing whitout this logic method.
+  */
+  /* loadRecipesFromJson
+     pretty much the same as loadIngredientsFromFile. Need this structure:
+    {
+    "id": 616,
+    "name": "cool recipe name",
+    "ingredients": [{"name": "im a cool name yahoo", "quantity": 9000, "unit": "cool units like ml, grams, units for pieces
+    like 2 entires onions, 3 entire carrots or 10 entire potatoes."}]
+  */
+  /* availableRecipesLogic
+     not shure what to do whit this 4now
+  */
+  /* showAvailableRecipes
+     show all recipes you can do within the ingredients loaded.
+   */
 public:
   void loadIngredientsFromFile(const std::string &filename);
   void manuallyAddIngredients() const;
@@ -64,7 +99,10 @@ public:
 
   void loadRecipesFromJson(const std::string &filename);
   void availableRecipesLogic() const;
-  void showAvailableRecipes(const std::string &filename);
+  void showAvailableRecipes();
+
+  void showAllIngredients();
+  void showAllRecipes();
 };
 
 // Methos beneath this comment
@@ -94,7 +132,10 @@ void RecipeManager::loadIngredientsFromFile(const std::string &filename)
       ingredients.emplace_back(Ingredient{name, quantity, unit});
     }
   }
+};
 
+void RecipeManager::showAllIngredients()
+{
   std::cout << "--- Ingredients loaded ---" << std::endl;
 
   for (const auto &ingredient : ingredients)
@@ -103,8 +144,7 @@ void RecipeManager::loadIngredientsFromFile(const std::string &filename)
               << ": Quantity: " << ingredient.quantity
               << " " << ingredient.unit << std::endl;
   }
-  std::cout << "" << std::endl;
-};
+}
 
 void RecipeManager::loadRecipesFromJson(const std::string &filename)
 {
@@ -136,7 +176,12 @@ void RecipeManager::loadRecipesFromJson(const std::string &filename)
     recipes.emplace_back(Recipe{
         id, recipe_name, recipe_ingredients, instructions});
   }
-  std::cout << "--- Recipes loaded ---" << std::endl;
+};
+
+void RecipeManager::showAllRecipes()
+{
+  std::cout << "--- Recipes loaded ---\n"
+            << std::endl;
 
   for (const auto &recipe : recipes)
   {
@@ -149,12 +194,11 @@ void RecipeManager::loadRecipesFromJson(const std::string &filename)
     }
     std::cout << "  Instructions: " << recipe.instructions << "\n\n";
   }
-};
+}
 
-// void RecipeManager::showAvailableRecipes(const std::string &filename) {};
+void RecipeManager::showAvailableRecipes() {};
 
-/*
-Execution sequency:
+/*Execution seq:
 
   => loadIngredientsFromFile
   loads the ingredients from the .txt or .csv file
@@ -192,6 +236,8 @@ int main()
   {
     manager.loadIngredientsFromFile(i);
     manager.loadRecipesFromJson(r);
+    // manager.showAllIngredients();
+    // manager.showAllRecipes();
   }
   catch (const std::ifstream::failure &e)
   {
@@ -207,7 +253,7 @@ int main()
   }
   catch (...)
   {
-    std::cerr << "Unknown error occurred.\n";
+    std::cerr << "Unknown error.\n";
   }
 
   return 0;
