@@ -5,7 +5,7 @@
 #include <cctype>
 #include <map>
 #include <vector>
-#include "../imports/nlohmann/json.hpp"
+#include "imports/nlohmann/json.hpp"
 
 using json = nlohmann::json;
 
@@ -59,7 +59,7 @@ private:
   std::vector<Ingredient> ingredients;
 
 public:
-  void loadIngredientsFromJson(const std::string &filename);
+  void loadIngredientsFromFile(const std::string &filename);
 
   void showIngredients() const;
 
@@ -71,6 +71,7 @@ class RecipeManager
 {
 private:
   std::vector<Recipe> recipes;
+  std::vector<Ingredient> availableIngredients;
 
 public:
   void showAvilableRecipes() const;
@@ -84,7 +85,7 @@ public:
  - showRecipes() => Shows available recipes based on loaded ingredients.
  - showAllRecipes() => Shows all recipes loaded in the program.
  - loadRecipesFromJson() => Loads recipes from json on program startup.
- - loadIngredientsFromJson() => Loads ingredients from a text file on program startup.
+ - loadIngredientsFromFile() => Loads ingredients from a text file on program startup.
  - showIngredients() => Shows all available ingredients loaded from the file.
 */
 
@@ -100,7 +101,7 @@ public:
                   aa,    ,88
                    "Y8bbdP"
 */
-void IngredientManager::loadIngredientsFromJson(const std::string &filename)
+void IngredientManager::loadIngredientsFromFile(const std::string &filename)
 {
   std::ifstream ingrfile(filename);
   if (!ingrfile.is_open())
@@ -119,31 +120,13 @@ void IngredientManager::loadIngredientsFromJson(const std::string &filename)
         std::getline(ss, quantityString, ',') &&
         std::getline(ss, unit, ','))
     {
-
       name = trim(name);
-      quantityString = trim(quantityString);
       unit = trim(unit);
-
-      try
-      {
-        int quantity = std::stoi(quantityString);
-      }
-      catch (const std::invalid_argument &e)
-      {
-        std::cerr << "Invalid quantity for ingredient." << name << std::endl;
-        std::cerr << "Error: expect an int number, not a double or a string" << e.what() << std::endl;
-      }
-    }
-    else
-    {
-      std::cerr << "Error parsing line: " << line << std::endl;
-      std::cerr << "Expected format: name,quantity,unit" << std::endl;
-      std::cerr << "Expected format: name, quantity, unit" << std::endl;
-      std::cerr << "Example format 1: milk,500,milliliters" << std::endl;
-      std::cerr << "Example format 2: milk, 500, milliliters" << std::endl;
+      int quantity = std::stoi(trim(quantityString));
+      ingredients.emplace_back(name, quantity, unit);
     }
   }
-};
+}
 
 void IngredientManager::showIngredients() const
 {
@@ -169,65 +152,6 @@ void IngredientManager::showIngredients() const
                                         88
                                         88
 */
-void RecipeManager::loadRecipesFromJson(const std::string &filename)
-{
-  std::ifstream recfile(filename);
-  if (!recfile.is_open())
-  {
-    std::cerr << "Could not open the file: " << filename << std::endl;
-    return;
-  }
-
-  json j;
-  recfile >> j;
-
-  recipes.clear();
-
-  for (const auto &loadRec : j)
-  {
-    int recipeId = loadRec["id"];
-    std::string recipeName = loadRec["name"];
-    std::string recipeSteps = loadRec["instructions"];
-
-    std::vector<Ingredient> recipeIngredients;
-
-    for (const auto &ingrJson : loadRec["ingredients"])
-    {
-      std::string ingrName = ingrJson["name"];
-      double ingrQty = ingrJson["quantity"];
-      std::string ingrUnit = ingrJson["unit"];
-
-      recipeIngredients.emplace_back(ingrName, static_cast<int>(ingrQty), ingrUnit);
-    }
-
-    recipes.emplace_back(recipeId, recipeName, recipeIngredients, recipeSteps);
-  }
-}
-
-void RecipeManager::showAvilableRecipes() const
-{
-  std::cout << "Available Recipes:" << std::endl;
-};
-
-void RecipeManager::showAllRecipes() const
-{
-  std::cout << "Available Recipes:" << std::endl;
-  for (const auto &recipe : recipes)
-  {
-    std::cout << "ID: " << recipe.id << std::endl;
-    std::cout << "Recipe: " << recipe.recipe_name << std::endl;
-    std::cout << "Ingredients:" << std::endl;
-
-    for (const auto &ingredient : recipe.ingredients)
-    {
-      std::cout << "- " << ingredient.name << ": "
-                << ingredient.quantity << " " << ingredient.unit << std::endl;
-    }
-
-    std::cout << "Steps: " << recipe.steps_preparation << std::endl;
-    std::cout << "------------------------" << std::endl;
-  }
-}
 
 /*
 88,dPYba,,adPYba,   ,adPPYYba,  88  8b,dPPYba,
@@ -245,10 +169,10 @@ int main()
   std::string recipeFile = "../../data/recipes.json";
   std::string ingredientFile = "../../data/ingredients.txt";
 
-  ingredientManager.loadIngredientsFromJson(ingredientFile);
-  recipeManager.loadRecipesFromJson(recipeFile);
+  ingredientManager.loadIngredientsFromFile(ingredientFile);
+  // recipeManager.loadRecipesFromJson(recipeFile);
 
   ingredientManager.showIngredients();
-  recipeManager.showAllRecipes();
+  // recipeManager.showAllRecipes();
   return 0;
 }
