@@ -8,8 +8,6 @@
 #include "imports/nlohmann/json.hpp"
 /*TODO list
   TODO: manuallyAddIngredients
-  TODO: mergeIngredients
-  TODO: showAvailableRecipes
   TODO: menu list (prob another class)
   TODO: ui (another class lmao)
   TODO: proper documentation
@@ -95,17 +93,75 @@ private:
 public:
   void loadIngredientsFromFile(const std::string &filename);
   void manuallyAddIngredients() const;
-  void mergeIngredients() const;
 
   void loadRecipesFromJson(const std::string &filename);
-  void availableRecipesLogic() const;
   void showAvailableRecipes();
 
   void showAllIngredients();
   void showAllRecipes();
 };
 
+class MainMenu
+{
+public:
+  void startupMenu();
+  void recipeMenu();
+  void ingredientsMenu();
+
+  void selectRecipe();
+  void editIngredient();
+};
+
 // Methos beneath this comment
+
+void MainMenu::startupMenu()
+{
+  std::string choice;
+  std::cout << "Virtual Chef" << std::endl
+            << "--- ---" << std::endl;
+
+  std::cout << "1. Open Recipe Menu" << std::endl;
+  std::cout << "2. Open Ingredient Menu" << std::endl;
+  std::cout << "Enter your choice: ";
+  std::getline(std::cin, choice);
+
+  switch (choice[0])
+  {
+  case '1':
+    recipeMenu();
+    break;
+  case '2':
+    ingredientsMenu();
+    break;
+  default:
+    std::cout << "Exiting program." << std::endl;
+    break;
+  }
+}
+
+void MainMenu::recipeMenu()
+{
+  std::cout << "Virtual Chef: Recipe Menu" << std::endl
+            << "--- ---" << std::endl;
+
+  std::cout << "1. Show All Recipes" << std::endl;
+  std::cout << "2. Show Available Recipes possibles with your current ingredients" << std::endl;
+  std::cout << "3. Return to Main Menu" << std::endl;
+};
+
+void MainMenu::ingredientsMenu()
+{
+  std::cout << "Virtual Chef: Ingredient Menu" << std::endl
+            << "--- ---" << std::endl;
+
+  std::cout << "1. Show All Ingredients" << std::endl;
+  std::cout << "2. Edit Ingredients" << std::endl;
+  std::cout << "3. Return to Main Menu" << std::endl;
+};
+
+void MainMenu::selectRecipe() {};
+
+void MainMenu::editIngredient() {};
 
 void RecipeManager::loadIngredientsFromFile(const std::string &filename)
 {
@@ -180,23 +236,60 @@ void RecipeManager::loadRecipesFromJson(const std::string &filename)
 
 void RecipeManager::showAllRecipes()
 {
-  std::cout << "--- Recipes loaded ---\n"
-            << std::endl;
+  std::cout << "--- Recipes loaded ---" << std::endl;
 
   for (const auto &recipe : recipes)
   {
-    std::cout << "- Recipe ID: " << recipe.id << std::endl;
+    std::cout << "  Recipe ID: " << recipe.id << std::endl;
     std::cout << "  Name: " << recipe.recipe_name << std::endl;
     std::cout << "  Ingredients:\n";
     for (const auto &ing : recipe.ingredients)
     {
       std::cout << "    - " << ing.name << ": " << ing.quantity << " " << ing.unit << std::endl;
     }
-    std::cout << "  Instructions: " << recipe.instructions << "\n\n";
+    std::cout << "  Instructions: \n"
+              << recipe.instructions << std::endl;
   }
 }
 
-void RecipeManager::showAvailableRecipes() {};
+void RecipeManager::showAvailableRecipes()
+{
+  std::vector<std::string> availableRecipes;
+  // SE NECESITA UNA LÓGICA PARA ESTANDARIZAR LAS UNIDADES
+  for (const auto &recipe : recipes)
+  {
+    bool canMake = true;
+    for (const auto &reqIngr : recipe.ingredients)
+    {
+      bool found = false;
+      for (const auto &haveIngr : ingredients)
+      {
+        if (reqIngr.name == haveIngr.name &&
+            reqIngr.unit == haveIngr.unit &&
+            haveIngr.quantity >= reqIngr.quantity)
+        {
+          found = true;
+          break;
+        }
+      }
+      if (!found)
+      {
+        canMake = false;
+        break;
+      }
+    }
+    if (canMake)
+    {
+      availableRecipes.push_back(recipe.recipe_name);
+    }
+  }
+
+  std::cout << "Available recipes with your ingredients, are: " << std::endl;
+  for (const auto &name : availableRecipes)
+  {
+    std::cout << "- " << name << std::endl;
+  }
+};
 
 /*Execution seq:
 
@@ -207,10 +300,6 @@ void RecipeManager::showAvailableRecipes() {};
   => loadRecipesFromJson
   load sthe entire recipe file and storage them on the program,
   then, they're procesed onto a Recipe object.
-
-  => void availableRecipesLogic
-  logic to process the loaded ingredients and recipes
-  and waits for being call from showAvailableRecipes.
 
   => showAvailableRecipes
   print the recipes only available by the ingredients
@@ -238,6 +327,7 @@ int main()
     manager.loadRecipesFromJson(r);
     // manager.showAllIngredients();
     // manager.showAllRecipes();
+    manager.showAvailableRecipes();
   }
   catch (const std::ifstream::failure &e)
   {

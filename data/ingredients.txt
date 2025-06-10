@@ -1,20 +1,20 @@
-eggs, 6, units
-potatoes, 4, units
-onions, 2, units
-oil, 150, milliliters
-salt, 500, grams
-flour, 250, grams
-sugar, 200, grams
-milk, 500, milliliters
-butter, 100, grams
-baking powder, 10, grams
-chicken breast, 2, units
-rice, 300, grams
-tomato, 3, units
-garlic, 4, cloves
-olive oil, 50, milliliters
-black pepper, 10, grams
-carrots, 2, units
-peas, 100, grams
-cheese, 150, grams
+eggs, 1, units  
+potatoes, 4, units  
+onions, 2, units  
+oil, 150, milliliters  
+salt, 500, grams  
+flour, 250, grams  
+sugar, 200, grams  
+milk, 500, milliliters  
+butter, 100, grams  
+baking powder, 10, grams  
+chicken breast, 2, units  
+rice, 300, grams  
+tomato, 3, units  
+garlic, 4, cloves  
+olive oil, 50, milliliters  
+black pepper, 10, grams  
+carrots, 2, units  
+peas, 100, grams  
+cheese, 150, grams  
 bread, 4, slices

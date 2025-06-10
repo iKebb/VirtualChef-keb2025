@@ -16,12 +16,12 @@
       {
         "name": "onions",
         "quantity": 1,
-        "unit": "unit"
+        "unit": "units"
       },
       {
         "name": "oil",
         "quantity": 50,
-        "unit": "ml"
+        "unit": "milliliters"
       },
       {
         "name": "salt",
@@ -38,7 +38,7 @@
       {
         "name": "lettuce",
         "quantity": 1,
-        "unit": "unit"
+        "unit": "units"
       },
       {
         "name": "chicken breast",
@@ -58,7 +58,7 @@
       {
         "name": "caesar dressing",
         "quantity": 30,
-        "unit": "ml"
+        "unit": "milliliters"
       }
     ],
     "instructions": "Wash and chop lettuce. Cook chicken and slice into strips. Mix lettuce with chicken, croutons, and cheese. Add caesar dressing and toss well before serving."
@@ -75,22 +75,22 @@
       {
         "name": "carrot",
         "quantity": 1,
-        "unit": "unit"
+        "unit": "units"
       },
       {
         "name": "onion",
         "quantity": 1,
-        "unit": "unit"
+        "unit": "units"
       },
       {
         "name": "garlic",
         "quantity": 2,
-        "unit": "units"
+        "unit": "cloves"
       },
       {
         "name": "vegetable broth",
-        "quantity": 1,
-        "unit": "liter"
+        "quantity": 1000,
+        "unit": "milliliters"
       }
     ],
     "instructions": "Chop onion, carrot, and garlic. Sauté in a pot, add lentils and broth. Simmer over medium heat until lentils are tender."
