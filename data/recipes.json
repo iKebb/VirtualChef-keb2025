@@ -94,5 +94,694 @@
       }
     ],
     "instructions": "Chop onion, carrot, and garlic. Sauté in a pot, add lentils and broth. Simmer over medium heat until lentils are tender."
+  },
+  {
+    "id": 4,
+    "name": "Vegetable Stir-Fry",
+    "ingredients": [
+      {
+        "name": "broccoli",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "bell pepper",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "carrot",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "soy sauce",
+        "quantity": 30,
+        "unit": "milliliters"
+      },
+      {
+        "name": "vegetable oil",
+        "quantity": 20,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Chop all vegetables into bite-size pieces. Heat oil in a pan, add vegetables and stir-fry for 8 minutes. Add soy sauce and cook for 2 more minutes."
+  },
+  {
+    "id": 5,
+    "name": "Pancakes",
+    "ingredients": [
+      {
+        "name": "flour",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 200,
+        "unit": "milliliters"
+      },
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "butter",
+        "quantity": 20,
+        "unit": "grams"
+      },
+      {
+        "name": "sugar",
+        "quantity": 10,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Mix flour, sugar, eggs, and milk to make a smooth batter. Melt butter in a pan, pour small amounts of batter, and cook until golden on both sides."
+  },
+  {
+    "id": 6,
+    "name": "Greek Salad",
+    "ingredients": [
+      {
+        "name": "tomatoes",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "cucumber",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "red onion",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "feta cheese",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 30,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Chop tomatoes, cucumber, and onion. Combine with feta cheese in a bowl. Drizzle olive oil and toss well before serving."
+  },
+  {
+    "id": 7,
+    "name": "Chicken Alfredo Pasta",
+    "ingredients": [
+      {
+        "name": "chicken breast",
+        "quantity": 250,
+        "unit": "grams"
+      },
+      {
+        "name": "fettuccine pasta",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "butter",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "heavy cream",
+        "quantity": 200,
+        "unit": "milliliters"
+      },
+      {
+        "name": "parmesan cheese",
+        "quantity": 50,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Cook pasta according to package instructions. Cook chicken and set aside. In a pan, melt butter, add cream and parmesan. Add cooked pasta and chicken, mix well."
+  },
+  {
+    "id": 8,
+    "name": "Tomato Soup",
+    "ingredients": [
+      {
+        "name": "tomatoes",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves"
+      },
+      {
+        "name": "vegetable broth",
+        "quantity": 500,
+        "unit": "milliliters"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 20,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Sauté onion and garlic in olive oil. Add chopped tomatoes and broth. Simmer for 20 minutes. Blend until smooth."
+  },
+  {
+    "id": 9,
+    "name": "Tuna Sandwich",
+    "ingredients": [
+      {
+        "name": "tuna (canned)",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "mayonnaise",
+        "quantity": 30,
+        "unit": "milliliters"
+      },
+      {
+        "name": "bread",
+        "quantity": 2,
+        "unit": "slices"
+      },
+      {
+        "name": "lettuce",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "units"
+      }
+    ],
+    "instructions": "Mix tuna with mayonnaise. Spread on bread slices, add lettuce and tomato slices. Press together to form a sandwich."
+  },
+  {
+    "id": 10,
+    "name": "Grilled Cheese Sandwich",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": 2,
+        "unit": "slices"
+      },
+      {
+        "name": "cheddar cheese",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "butter",
+        "quantity": 20,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Spread butter on the outside of each bread slice. Place cheese between slices. Grill in a pan until both sides are golden brown."
+  },
+  {
+    "id": 11,
+    "name": "Fruit Smoothie",
+    "ingredients": [
+      {
+        "name": "banana",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "strawberries",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "yogurt",
+        "quantity": 150,
+        "unit": "milliliters"
+      },
+      {
+        "name": "honey",
+        "quantity": 10,
+        "unit": "milliliters"
+      },
+      {
+        "name": "ice cubes",
+        "quantity": 5,
+        "unit": "pieces"
+      }
+    ],
+    "instructions": "Add all ingredients to a blender. Blend until smooth. Serve chilled."
+  },
+  {
+    "id": 12,
+    "name": "Spaghetti Aglio e Olio",
+    "ingredients": [
+      {
+        "name": "spaghetti",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 50,
+        "unit": "milliliters"
+      },
+      {
+        "name": "chili flakes",
+        "quantity": 2,
+        "unit": "grams"
+      },
+      {
+        "name": "salt",
+        "quantity": 3,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Cook spaghetti. Sauté minced garlic and chili flakes in olive oil. Drain pasta, add to the pan, season with salt and toss well."
+  },
+  {
+    "id": 13,
+    "name": "Avocado Toast",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": 1,
+        "unit": "slices"
+      },
+      {
+        "name": "avocado",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "lemon juice",
+        "quantity": 5,
+        "unit": "milliliters"
+      },
+      {
+        "name": "salt",
+        "quantity": 2,
+        "unit": "grams"
+      },
+      {
+        "name": "pepper",
+        "quantity": 1,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Toast bread. Mash avocado and mix with lemon juice, salt, and pepper. Spread over toast and serve."
+  },
+  {
+    "id": 14,
+    "name": "Baked Sweet Potato Fries",
+    "ingredients": [
+      {
+        "name": "sweet potato",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 30,
+        "unit": "milliliters"
+      },
+      {
+        "name": "paprika",
+        "quantity": 3,
+        "unit": "grams"
+      },
+      {
+        "name": "salt",
+        "quantity": 2,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Preheat oven to 200°C. Cut sweet potatoes into strips. Toss with oil and spices. Bake for 25–30 minutes, flipping halfway."
+  },
+  {
+    "id": 15,
+    "name": "Shakshuka",
+    "ingredients": [
+      {
+        "name": "tomatoes",
+        "quantity": 400,
+        "unit": "grams"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "bell pepper",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "eggs",
+        "quantity": 4,
+        "unit": "units"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 20,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Sauté onion and bell pepper in oil. Add chopped tomatoes and simmer. Make wells in the mixture and crack eggs into them. Cover and cook until eggs are done."
+  },
+  {
+    "id": 16,
+    "name": "Mashed Potatoes",
+    "ingredients": [
+      {
+        "name": "potatoes",
+        "quantity": 500,
+        "unit": "grams"
+      },
+      {
+        "name": "butter",
+        "quantity": 30,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 50,
+        "unit": "milliliters"
+      },
+      {
+        "name": "salt",
+        "quantity": 5,
+        "unit": "grams"
+      },
+      {
+        "name": "pepper",
+        "quantity": 2,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Boil peeled potatoes until tender. Drain and mash with butter, warm milk, salt, and pepper until smooth."
+  },
+  {
+    "id": 17,
+    "name": "Caprese Skewers",
+    "ingredients": [
+      {
+        "name": "cherry tomatoes",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "mozzarella balls",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "fresh basil leaves",
+        "quantity": 10,
+        "unit": "pieces"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 20,
+        "unit": "milliliters"
+      },
+      {
+        "name": "balsamic vinegar",
+        "quantity": 10,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Skewer tomatoes, mozzarella, and basil leaves. Drizzle with olive oil and balsamic vinegar before serving."
+  },
+  {
+    "id": 18,
+    "name": "Oatmeal with Fruit",
+    "ingredients": [
+      {
+        "name": "oats",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 250,
+        "unit": "milliliters"
+      },
+      {
+        "name": "banana",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "blueberries",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "honey",
+        "quantity": 10,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Cook oats in milk until thickened. Top with sliced banana, blueberries, and drizzle honey before serving."
+  },
+  {
+    "id": 19,
+    "name": "Hummus",
+    "ingredients": [
+      {
+        "name": "chickpeas",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "tahini",
+        "quantity": 30,
+        "unit": "milliliters"
+      },
+      {
+        "name": "lemon juice",
+        "quantity": 20,
+        "unit": "milliliters"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 15,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Blend chickpeas, tahini, lemon juice, and garlic in a food processor. Add olive oil while blending until smooth. Serve chilled."
+  },
+  {
+    "id": 20,
+    "name": "Rice with Vegetables",
+    "ingredients": [
+      {
+        "name": "rice",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "mixed vegetables",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "soy sauce",
+        "quantity": 20,
+        "unit": "milliliters"
+      },
+      {
+        "name": "vegetable oil",
+        "quantity": 15,
+        "unit": "milliliters"
+      },
+      {
+        "name": "egg",
+        "quantity": 1,
+        "unit": "units"
+      }
+    ],
+    "instructions": "Cook rice. Sauté vegetables in oil. Add beaten egg and cook until scrambled. Add rice and soy sauce, stir-fry until well combined."
+  },
+  {
+    "id": 21,
+    "name": "French Toast",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": 2,
+        "unit": "slices"
+      },
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "units"
+      },
+      {
+        "name": "milk",
+        "quantity": 50,
+        "unit": "milliliters"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 2,
+        "unit": "grams"
+      },
+      {
+        "name": "butter",
+        "quantity": 20,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Beat eggs with milk and cinnamon. Soak bread slices in the mixture. Cook in a buttered pan until golden on both sides."
+  },
+  {
+    "id": 22,
+    "name": "Quiche Lorraine",
+    "ingredients": [
+      {
+        "name": "pie crust",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "eggs",
+        "quantity": 3,
+        "unit": "units"
+      },
+      {
+        "name": "bacon",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 150,
+        "unit": "milliliters"
+      },
+      {
+        "name": "cheese",
+        "quantity": 50,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Pre-bake pie crust. Whisk eggs with milk, add diced bacon and cheese. Pour into crust and bake at 180°C for 25-30 minutes."
+  },
+  {
+    "id": 23,
+    "name": "Stuffed Bell Peppers",
+    "ingredients": [
+      {
+        "name": "bell peppers",
+        "quantity": 4,
+        "unit": "units"
+      },
+      {
+        "name": "ground beef",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "rice",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "tomato sauce",
+        "quantity": 150,
+        "unit": "milliliters"
+      },
+      {
+        "name": "cheese",
+        "quantity": 50,
+        "unit": "grams"
+      }
+    ],
+    "instructions": "Cut tops off peppers. Mix beef, rice, and tomato sauce. Stuff into peppers, top with cheese, and bake at 180°C for 30–35 minutes."
+  },
+  {
+    "id": 24,
+    "name": "Chocolate Mug Cake",
+    "ingredients": [
+      {
+        "name": "flour",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "sugar",
+        "quantity": 50,
+        "unit": "grams"
+      },
+      {
+        "name": "cocoa powder",
+        "quantity": 20,
+        "unit": "grams"
+      },
+      {
+        "name": "milk",
+        "quantity": 60,
+        "unit": "milliliters"
+      },
+      {
+        "name": "oil",
+        "quantity": 20,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Mix dry ingredients in a mug. Add wet ingredients and mix well. Microwave for 1 minute 30 seconds or until cake is firm."
+  },
+  {
+    "id": 25,
+    "name": "Pad Thai",
+    "ingredients": [
+      {
+        "name": "rice noodles",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "shrimp",
+        "quantity": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "bean sprouts",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "lime",
+        "quantity": 1,
+        "unit": "units"
+      },
+      {
+        "name": "fish sauce",
+        "quantity": 20,
+        "unit": "milliliters"
+      }
+    ],
+    "instructions": "Soak noodles. Stir-fry shrimp, add noodles, bean sprouts, and fish sauce. Squeeze lime before serving."
   }
 ]

@@ -1,20 +1,37 @@
-eggs, 6, units  
-potatoes, 4, units  
-onions, 2, units  
-oil, 150, milliliters  
-salt, 500, grams  
-flour, 250, grams  
-sugar, 200, grams  
-milk, 500, milliliters  
-butter, 100, grams  
-baking powder, 10, grams  
-chicken breast, 2, units  
-rice, 300, grams  
-tomato, 3, units  
-garlic, 4, cloves  
-olive oil, 50, milliliters  
-black pepper, 10, grams  
-carrots, 2, units  
-peas, 100, grams  
-cheese, 150, grams  
-bread, 4, slices
+# Lácteos y huevos
+yogurt, 200, milliliters  
+cheddar cheese, 100, grams  
+parmesan cheese, 50, grams  
+heavy cream, 200, milliliters  
+bell pepper, 2, units  
+cucumber, 1, units  
+red onion, 1, units  
+spinach, 100, grams  
+zucchini, 2, units  
+celery, 2, stalks  
+green onions, 3, units  
+banana, 2, units  
+lemon, 2, units  
+strawberries, 100, grams  
+tuna (canned), 150, grams  
+bacon, 100, grams  
+ground beef, 200, grams  
+shrimp, 150, grams  
+pasta (fettuccine or spaghetti), 200, grams  
+oats, 100, grams  
+croutons, 50, grams  
+baking powder, 5, grams  
+soy sauce, 50, milliliters  
+mayonnaise, 50, milliliters  
+caesar dressing, 30, milliliters  
+tomato sauce, 150, milliliters  
+balsamic vinegar, 30, milliliters  
+honey, 30, milliliters  
+chili flakes, 5, grams  
+paprika, 10, grams  
+cinnamon, 5, grams  
+ice cubes, 10, pieces  
+pie crust, 1, unit  
+tahini, 30, milliliters  
+fresh basil leaves, 10, pieces  
+mixed vegetables (frozen), 200, grams  
