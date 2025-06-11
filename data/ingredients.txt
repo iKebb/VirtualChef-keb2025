@@ -1,4 +1,4 @@
-eggs, 1, units  
+eggs, 6, units  
 potatoes, 4, units  
 onions, 2, units  
 oil, 150, milliliters  

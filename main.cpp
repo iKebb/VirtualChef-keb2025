@@ -66,36 +66,14 @@ private:
   // vector of ingredients is also needed by the same but also for knowing what recipes we can do.
   std::vector<Recipe> recipes;
   std::vector<Ingredient> ingredients;
-  /* loadIngredientsFromFile
-     descriptive as hell, isn't it? loads an txt or csv file with ingredientes, so it needs this structure:
-    "name, ingredient, unit"; "name,ingredient,unit"; or if u r kind of special, "name              , ingredient, unit"
-  */
-  /* manuallyAddIngredients
-     descriptive as hell, isn't? give it an input and you have a new ingredient loaded in the program.
-   */
-  /* mergeIngredients
-     considering deleting this bc manuallyAddIngredients can do the same thing whitout this logic method.
-  */
-  /* loadRecipesFromJson
-     pretty much the same as loadIngredientsFromFile. Need this structure:
-    {
-    "id": 616,
-    "name": "cool recipe name",
-    "ingredients": [{"name": "im a cool name yahoo", "quantity": 9000, "unit": "cool units like ml, grams, units for pieces
-    like 2 entires onions, 3 entire carrots or 10 entire potatoes."}]
-  */
-  /* availableRecipesLogic
-     not shure what to do whit this 4now
-  */
-  /* showAvailableRecipes
-     show all recipes you can do within the ingredients loaded.
-   */
+
 public:
   void loadIngredientsFromFile(const std::string &filename);
-  void manuallyAddIngredients() const;
+  void manuallyAddIngredients();
 
   void loadRecipesFromJson(const std::string &filename);
   void showAvailableRecipes();
+  void selectRecipe();
 
   void showAllIngredients();
   void showAllRecipes();
@@ -113,55 +91,6 @@ public:
 };
 
 // Methos beneath this comment
-
-void MainMenu::startupMenu()
-{
-  std::string choice;
-  std::cout << "Virtual Chef" << std::endl
-            << "--- ---" << std::endl;
-
-  std::cout << "1. Open Recipe Menu" << std::endl;
-  std::cout << "2. Open Ingredient Menu" << std::endl;
-  std::cout << "Enter your choice: ";
-  std::getline(std::cin, choice);
-
-  switch (choice[0])
-  {
-  case '1':
-    recipeMenu();
-    break;
-  case '2':
-    ingredientsMenu();
-    break;
-  default:
-    std::cout << "Exiting program." << std::endl;
-    break;
-  }
-}
-
-void MainMenu::recipeMenu()
-{
-  std::cout << "Virtual Chef: Recipe Menu" << std::endl
-            << "--- ---" << std::endl;
-
-  std::cout << "1. Show All Recipes" << std::endl;
-  std::cout << "2. Show Available Recipes possibles with your current ingredients" << std::endl;
-  std::cout << "3. Return to Main Menu" << std::endl;
-};
-
-void MainMenu::ingredientsMenu()
-{
-  std::cout << "Virtual Chef: Ingredient Menu" << std::endl
-            << "--- ---" << std::endl;
-
-  std::cout << "1. Show All Ingredients" << std::endl;
-  std::cout << "2. Edit Ingredients" << std::endl;
-  std::cout << "3. Return to Main Menu" << std::endl;
-};
-
-void MainMenu::selectRecipe() {};
-
-void MainMenu::editIngredient() {};
 
 void RecipeManager::loadIngredientsFromFile(const std::string &filename)
 {
@@ -189,6 +118,8 @@ void RecipeManager::loadIngredientsFromFile(const std::string &filename)
     }
   }
 };
+
+void RecipeManager::manuallyAddIngredients() {};
 
 void RecipeManager::showAllIngredients()
 {
@@ -290,6 +221,103 @@ void RecipeManager::showAvailableRecipes()
     std::cout << "- " << name << std::endl;
   }
 };
+
+void RecipeManager::selectRecipe()
+{
+  int choice = 0;
+
+  std::cout << "Your available recipes are:\n";
+  for (const auto &recipe : recipes)
+  {
+    std::cout << "- " << recipe.recipe_name << std::endl;
+  }
+  std::cout << "Select a recipe: ";
+  std::cin >> choice;
+
+  if (choice < 1 || choice > static_cast<int>(recipes.size()))
+  {
+    std::cout << "Invalid selection." << std::endl;
+    return;
+  }
+  const Recipe &selected = recipes[choice - 1];
+  std::cout << "Recipe ID: " << selected.id << std::endl;
+  std::cout << "Name: " << selected.recipe_name << std::endl;
+  std::cout << "Ingredients:" << std::endl;
+  for (const auto &ing : selected.ingredients)
+  {
+    std::cout << "  - " << ing.name << ": " << ing.quantity << " " << ing.unit << std::endl;
+  }
+  std::cout << "Instructions:\n"
+            << selected.instructions << std::endl;
+}
+
+void MainMenu::startupMenu()
+{
+  std::string choice;
+  std::cout << "Virtual Chef" << std::endl
+            << "--- ---" << std::endl;
+
+  std::cout << "1. Open Recipe Menu" << std::endl;
+  std::cout << "2. Open Ingredient Menu" << std::endl;
+  std::cout << "3. Exit Program" << std::endl;
+  std::cout << "Enter your choice: ";
+  std::getline(std::cin, choice);
+
+  switch (choice[0])
+  {
+  case '1':
+    recipeMenu();
+    break;
+  case '2':
+    ingredientsMenu();
+    break;
+  case '3':
+    std::cout << "Exiting program." << std::endl;
+    break;
+  }
+}
+
+void MainMenu::recipeMenu()
+{
+  std::cout << "Virtual Chef: Recipe Menu" << std::endl
+            << "--- ---" << std::endl;
+
+  std::cout << "1. Show All Recipes" << std::endl;
+  std::cout << "2. Show Available Recipes possibles with your current ingredients" << std::endl;
+  std::cout << "3. Select a Recipe" << std::endl;
+  std::cout << "4. Return to Main Menu" << std::endl;
+
+  std::string choice;
+  RecipeManager manager;
+
+  switch (choice[0])
+  {
+  case '1':
+    manager.showAllRecipes();
+    break;
+  case '2':
+    manager.showAvailableRecipes();
+    break;
+  case '3':
+    manager.selectRecipe();
+    break;
+  case '4':
+  }
+};
+
+void MainMenu::ingredientsMenu()
+{
+  std::cout << "Virtual Chef: Ingredient Menu" << std::endl
+            << "--- ---" << std::endl;
+
+  std::cout << "1. Show All Ingredients" << std::endl;
+  std::cout << "2. Edit Ingredients" << std::endl;
+  std::cout << "3. Return to Main Menu" << std::endl;
+};
+
+void RecipeManager::selectRecipe() {};
+
+void MainMenu::editIngredient() {};
 
 /*Execution seq:
 
