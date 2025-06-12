@@ -7,15 +7,30 @@
 #include <vector>
 #include "imports/nlohmann/json.hpp"
 
-/*MAJOR CHANGES
-  - Code refraction: deleted MainMenu class; not necessary to be a class neither a fun.
-  - Consistence: all code was reviewed so IN THEORY all names of everyting is more accurate and "correct"
-  - Minor corrections: THE MAIN MENU NOW RETURN ITSELF TO THE MAIN MENU WHEN YOU EXIT THE SUBMENUS WOW!
+/* MAJOR CHANGES
+  - Refactor: Deleted MainMenu class; it's not necessary to be a class or even a function.
+  - Consistency: All code was reviewed so IN THEORY all names of everything are more accurate and "correct".
+  - Minor corrections: THE MAIN MENU NOW RETURNS TO ITSELF WHEN YOU EXIT THE SUBMENUS, WOW!
 
-  Structure is pretty much the same, some references can be updated in order to make the program less heavy on load
-  bc it is not build thinking you can load over 9000 recipes or 16000 ingredients at a time.
+  The structure is pretty much the same. Some references can be updated to make the program less heavy on load,
+  because it is not built thinking you can load over 9000 recipes or 16,000 ingredients at a time.
 
-  TODO: save added ingredients onto my ingredientd.txt file
+  TODO list
+  TODO: Save added ingredients to my ingredients.txt file.
+  TODO: Unit tests.
+  TODO: Bug fixes:
+
+    - Inputting a string for "choice" breaks the program, causing an infinite loop to begin endlessly.
+
+    - For some reason (and I don't know why), sometimes loading ingredients at startup doesn't work and
+      you need to load them manually using showAllIngredients().
+
+    - Due to the lack of standardization on ingredients files, the program can break or not work correctly
+      if you add wrong parameters to ingredients.txt, for example: [onion (singular), -10, units]; [onions, , un it]; or things like that.
+
+  TODO: Refactor displayMenu (removing it) and make better menu functions; maybe a loop to keep adding ingredients or something.
+  TODO: Visual user interface.
+  TODO: Proper documentation of the project.
 */
 
 using json = nlohmann::json;
@@ -30,6 +45,7 @@ std::string trim(const std::string &s)
   return s.substr(first, last - first + 1);
   // trim text loaded from txt or csv
   // => "   Sasa Lele    " => "Sasa Lele"
+  // !!! doesn't work on "Sa sa Le le"
 }
 
 class Ingredient
@@ -88,6 +104,8 @@ public:
 
 void RecipeManager::loadIngredientsFromFile(const std::string &filename)
 {
+
+  // !!! Dump checker
   std::ifstream ingredientsFile(filename);
   if (!ingredientsFile.is_open())
   {
@@ -95,6 +113,7 @@ void RecipeManager::loadIngredientsFromFile(const std::string &filename)
     return;
   }
 
+  // the loop reads the file line per line and storage every line on te var "line"
   std::string line;
   while (std::getline(ingredientsFile, line))
   {
@@ -162,6 +181,7 @@ void RecipeManager::loadRecipesFromJson(const std::string &filename)
     std::string instructions = recipeJson.value("instructions", "");
 
     std::vector<Ingredient> recipe_ingredients;
+
     for (const auto &ingredient : recipeJson["ingredients"])
     {
       std::string name = ingredient.value("name", "");
@@ -202,8 +222,6 @@ void RecipeManager::showAvailableRecipes()
   // la estandarización de unidades no existe, es un invento del gobierno para hacerme pensar de más
   // GENERADO CON [COPILOT], SUJETO A CAMBIOS
 
-  std::cout << "\nShowing AVAILABLE Recipes\n"
-            << std::endl;
   std::cout << "Available recipes with your ingredients, are: " << std::endl;
 
   for (const auto &recipe : recipes)
@@ -243,7 +261,7 @@ void RecipeManager::showAvailableRecipes()
 
 void RecipeManager::selectRecipe()
 {
-
+  // GENERADO CON [COPILOT], SUJETO A CAMBIOS
   if (recipes.empty())
   {
     std::cout << "DUMNbo" << std::endl;
@@ -281,31 +299,7 @@ void RecipeManager::selectRecipe()
   std::cout << std::endl;
 }
 
-/*Execution seq:
-
-  => loadIngredientsFromFile
-  loads the ingredients from the .txt or .csv file
-  and storage'em onto a ingredient vector in RecipeManager.
-
-  => loadRecipesFromJson
-  load sthe entire recipe file and storage them on the program,
-  then, they're procesed onto a Recipe object.
-
-  => showAvailableRecipes
-  print the recipes only available by the ingredients
-  loaded in the program.
-
-  => manuallyAddIngredients
-  adds new ingredients inputed by the user.
-
-  => mergeIngredients
-  merge the inputed ingredients onto the ingredients vector.
-
-
-  THIS IS ALL IN THEORY. FOR NOW, JUST THE FIRST 2 STEPS WORKS
-*/
-
-void displayMenu()
+void displayMenu() // this fun. is so funny lolol
 {
   std::cout << "--- Virtual Chef ---" << std::endl;
   std::cout << "1. Show all recipes" << std::endl;
@@ -320,6 +314,7 @@ void displayMenu()
 int main()
 {
   RecipeManager rm;
+  // relative path from output (where code exes) to files.
   const std::string i = "../data/ingredients.txt";
   const std::string r = "../data/recipes.json";
 
@@ -329,7 +324,7 @@ int main()
   int choice;
   do
   {
-    displayMenu(); // Displays full menu including prompt
+    displayMenu();
     std::cin >> choice;
 
     switch (choice)
