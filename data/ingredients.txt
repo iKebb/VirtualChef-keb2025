@@ -1,4 +1,3 @@
-# Lácteos y huevos
 yogurt, 200, milliliters  
 cheddar cheese, 100, grams  
 parmesan cheese, 50, grams  
