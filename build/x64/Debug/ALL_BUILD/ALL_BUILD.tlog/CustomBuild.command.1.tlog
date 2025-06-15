@@ -1,0 +1,10 @@
+^C:\GAMES\C_PROJECTS\UNIT_20\VIRTUAL_CHEF\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Games/c_projects/UNIT_20/virtual_chef -BC:/Games/c_projects/UNIT_20/virtual_chef/build --check-stamp-file C:/Games/c_projects/UNIT_20/virtual_chef/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

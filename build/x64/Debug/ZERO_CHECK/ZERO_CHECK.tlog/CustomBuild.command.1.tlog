@@ -1,0 +1,10 @@
+^C:\GAMES\C_PROJECTS\UNIT_20\VIRTUAL_CHEF\BUILD\CMAKEFILES\F8DDDF739E799ECD3C1F1399FDCFBD43\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Games/c_projects/UNIT_20/virtual_chef -BC:/Games/c_projects/UNIT_20/virtual_chef/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Games/c_projects/UNIT_20/virtual_chef/build/virtual_chef.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

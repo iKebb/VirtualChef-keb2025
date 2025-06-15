@@ -1,0 +1,3 @@
+C:/Games/c_projects/UNIT_20/virtual_chef/build/CMakeFiles/main.dir
+C:/Games/c_projects/UNIT_20/virtual_chef/build/CMakeFiles/ALL_BUILD.dir
+C:/Games/c_projects/UNIT_20/virtual_chef/build/CMakeFiles/ZERO_CHECK.dir
