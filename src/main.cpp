@@ -1,6 +1,10 @@
 /**
  * @file main.cpp
- * @brief Startup point. Main entry of Virtual Chef.
+ * @brief Main entry point of the Virtual Chef application.
+ *
+ * This file contains the program's starting point. It initializes the RecipeManager,
+ * loads data from files, and provides a console-based menu for interacting with recipes
+ * and ingredients.
  */
 
 #include <iostream>
@@ -17,9 +21,9 @@ int main()
    * - Recipes from a JSON file.
    *
    *
-   * @param rm                  Class RecipeManager instance that allows recipes management.
-   * @param ingredientsFile     Relative path to the ingredients file.
-   * @param recipesFile         Relative path to the recipes file.
+   * @param [in] rm                  Class RecipeManager instance that allows recipes management.
+   * @param [in] ingredientsFile     Relative path to the ingredients file.
+   * @param [in] recipesFile         Relative path to the recipes file.
    * @note Paths are relative to the current working directory.
    */
   RecipeManager rm;
@@ -31,7 +35,7 @@ int main()
   int choice;
   do
   {
-    /// @brief Shows startup menu on terminal
+    // Display main menu options
     std::cout << "--- Virtual Chef ---" << std::endl;
     std::cout << "1. Show all recipes" << std::endl;
     std::cout << "2. Show available recipes" << std::endl;

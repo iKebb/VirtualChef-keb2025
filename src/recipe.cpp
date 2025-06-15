@@ -1,26 +1,34 @@
 /**
  * @file recipe.cpp
- * @brief Implementation of the Recipe class. Constructor and destructor.
+ * @brief Implementation of the Recipe class methods.
+ *
+ * This file contains the implementation of the Recipe class,
+ * including its constructor and destructor.
  */
 
 #include "../include/recipe.hpp"
 
 /**
- * @brief Construct a new Recipe object.
+ * @brief Constructs a new Recipe object.
  *
- * Example:
+ * Initializes a recipe with the given ID, name, list of ingredients,
+ * and preparation instructions. The data is stored internally for use
+ * in recipe management systems.
+ *
+ * Example usage:
  * ```cpp
- * Recipe recipe(2002,
+ * Recipe recipe(101,
  *              "Cheese Burger",
  *              {{"Bread", 2, "slices"},
  *               {"Lettuce", 2, "slices"},
  *               {"Mayonnaise", 8, "grams"}},
  *              "Start by placing the burger patty on a heated grill...");
  * ```
- * @param id Unique identifier for the recipe.
- * @param recipe_name Name of the recipe.
- * @param ingredients List of required ingredients.
- * @param instructions Step-by-step instructions to prepare the recipe.
+ *
+ * @param [in] id Unique identifier for the recipe
+ * @param [in] recipe_name Name of the recipe
+ * @param [in] ingredients List of required ingredients
+ * @param [in] instructions Step-by-step preparation instructions
  */
 
 Recipe::Recipe(int id,
@@ -34,6 +42,10 @@ Recipe::Recipe(int id,
 {
 }
 
-/// @brief Destroy the Recipe object.
-
+/**
+ * @brief Destroys the Recipe object.
+ *
+ * Currently performs no additional cleanup as all internal members
+ * are handled automatically by their destructors.
+ */
 Recipe::~Recipe() = default;

@@ -6,9 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_DEBUG_TYPE Debug)
 
-#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -pedantic -Wall -Wextra -std=gnu++17")
-# set(CMAKE_CXX_FLAGS_DEBUG "-pedantic -Wall -Wextra -std=gnu++17")
-set(CMAKE_CXX_FLGAS_RELEASE "-03 -std=gnu++17")
+# Configuración de flags por tipo de compilador
+if (MSVC)
+    add_compile_options(/W4 /WX)   
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+else()
+    add_compile_options(-Wall -Wextra -pedantic -Werror -std=c++17)
+endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 

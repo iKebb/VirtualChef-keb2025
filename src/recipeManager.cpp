@@ -20,19 +20,19 @@ using json = nlohmann::json;
 /**
  * @brief Loads ingredients from a CSV file into the internal list.
  *
- * This function opens a file and reads it line by line using std::getline().
- * Each line is expected to be in the format:
+ * The function opens the specified file and reads it line-by-line using std::getline().
+ * Each line is expected to follow this format:
  *   "name,quantity,unit"
  *
  * For each line:
- * - The string is split into three parts using ',' as delimiter.
- * - Leading/trailing whitespace is removed with trim().
- * - The quantity is converted from string to integer using std::stoi().
- * - A new Ingredient object is created and added to the internal vector.
+ * - The string is split using ',' as delimiter with std::getline()
+ * - Leading/trailing spaces are trimmed using trim()
+ * - Quantity is parsed via std::stoi()
+ * - A new Ingredient object is constructed and added to the vector
  *
- * If the file cannot be opened, an error message is printed and the function returns early.
+ * If the file cannot be opened, an error message is printed and execution stops early.
  *
- * @param filename Path to the ingredients CSV file.
+ * @param [in] filename Path to the CSV file containing ingredients data
  */
 void RecipeManager::loadIngredientsFromFile(const std::string &filename)
 {
@@ -60,69 +60,69 @@ void RecipeManager::loadIngredientsFromFile(const std::string &filename)
 }
 
 /**
- * @brief Allows the user to add ingredients manually via console input.
+ * @brief Allows the user to manually add ingredients via console input.
  *
- * Prompts the user for ingredient name, quantity, and unit of measure,
- * then stores the new ingredient in the internal ingredients vector.
+ * Iteratively prompts the user to enter:
+ * - Ingredient name
+ * - Quantity (validated with getIntegerInput)
+ * - Unit of measure
  *
- * After each addition, the user is asked if they want to add another.
- * The loop continues until the user enters "n" or "no" (case-insensitive).
+ * After adding one ingredient, the user is asked whether to continue.
+ * Input is trimmed and normalized to handle whitespace and case variations.
  *
- * @note Input is trimmed and converted to lowercase to handle whitespace
- *       and case variations gracefully. Example: "   SaD oNiOn   " → "sad onion".
+ * @note This function uses std::ws to skip leading whitespace when reading lines.
  */
 void RecipeManager::manuallyAddIngredients()
 {
-  bool s = true;
-  while (s)
+  bool isAdd = true;
+  while (isAdd)
   {
     std::string name, unit;
     int quantity;
 
-    std::cout << "Ingredient Name: ";
-    std::cin >> name;
+    std::cout << "Adding a new ingredient." << std::endl;
+
+    std::cout << "Ingredient name: ";
+    std::getline(std::cin >> std::ws, name);
 
     std::cout << "Quantity: ";
-    std::cin >> quantity;
+    if (!getIntegerInput(quantity, 1, 999999))
+    {
+      std::cout << "Invalid number. Please enter a natural (positive) number" << std::endl;
+      continue;
+    }
 
     std::cout << "Unit: ";
-    std::cin >> unit;
+    std::getline(std::cin >> std::ws, unit);
 
     ingredients.push_back({name, quantity, unit});
     std::cout << "Ingredient " << name << " added successfully!" << std::endl;
 
-    /// METHOD UNDER CHANGES, NOT AVAILABLE TO USE
-    bool validReponse = false;
-    while (!validReponse)
+    int choice;
+    do
     {
-      std::cout << "Whant to add another ingredient? " << std::endl;
-      std::cout << "1. Yes" << std::endl;
-      std::cout << "2. No" << std::endl;
-      int choice;
-      std::cin >> choice;
+      std::cout << "1. Yes\n";
+      std::cout << "2. No\n";
+      std::cout << "Want to add another ingredient? (1/2): " << std::endl;
+    } while (!getIntegerInput(choice, 1, 2));
 
-      if (!getIntegerInput(choice, 1, 2))
-      {
-        validReponse = true;
-      }
-      else if (choice == 1)
-      {
-        validReponse = false;
-        s = false;
-        break;
-      }
-      else
-      {
-        std::cout << "Please input '1' for 'yes' or '2' for 'no'" << std::endl;
-      }
-    };
+    if (choice == 2)
+    {
+      isAdd = false;
+    }
   }
 }
 
 /**
- * @brief Displays all currently loaded ingredients to the user.
- *   simple for each loop that shows every ingredient loaded on program.
-
+ * @brief Displays all currently loaded ingredients to the console.
+ *
+ * Iterates over the internal ingredients vector and prints:
+ * - Name
+ * - Quantity
+ * - Unit
+ *
+ * Output format:
+ *   - Name: Quantity Unit
  */
 void RecipeManager::showAllIngredients()
 {
@@ -138,23 +138,18 @@ void RecipeManager::showAllIngredients()
 }
 
 /**
- * @brief Loads recipes from a JSON file into the internal list.
+ * @brief Loads recipes from a JSON file using the nlohmann/json library.
  *
- * This function opens and parses a JSON file using the nlohmann/json library.
- * Each recipe object in the JSON array is processed to extract:
- * - Recipe ID
- * - Name of the recipe
- * - Instructions
- * - List of required ingredients (name, quantity, unit)
+ * Parses a JSON array where each object represents a recipe with:
+ * - id (optional, defaults to 0)
+ * - name (optional, defaults to "")
+ * - instructions (optional, defaults to "")
+ * - ingredients (array of objects with name, quantity, unit)
  *
- * If any field is missing in the JSON, a default value is used:
- * - Missing ID → 0
- * - Missing name or unit → empty string
- * - Missing quantity → 0
+ * For missing fields, default values are used. Ingredients are validated
+ * and constructed with empty strings or zero quantity if not present.
  *
- * The extracted data is stored in a Recipe object and added to the internal recipes vector.
- *
- * @param filename Path to the JSON file containing recipes.
+ * @param [in] filename Path to the JSON file containing recipe data
  */
 void RecipeManager::loadRecipesFromJson(const std::string &filename)
 {
@@ -184,8 +179,12 @@ void RecipeManager::loadRecipesFromJson(const std::string &filename)
 }
 
 /**
- * @brief Displays the names and IDs of all available recipes.
- *   // for-each logic to read every recipe from vector recipes and shows in order.
+ * @brief Displays the ID and name of every stored recipe.
+ *
+ * Iterates through the internal recipes vector and prints:
+ * - ID followed by ". "
+ * - Recipe name
+ * - Outpud: "1. Spanish Omelette"
  */
 void RecipeManager::showAllRecipes() const
 {
@@ -199,15 +198,14 @@ void RecipeManager::showAllRecipes() const
 }
 
 /**
- * @brief Displays only the recipes that can be made with the current ingredients.
+ * @brief Shows only recipes that can be made with current ingredients.
  *
- * Iterates through all stored recipes and checks if each one can be fully prepared
- * using the available ingredients. A recipe is considered available if:
- * - All required ingredients exist in the user's ingredient list.
- * - Each ingredient has sufficient quantity.
- * - The unit of measure matches exactly.
+ * For each recipe, checks:
+ * - All required ingredients exist in the ingredients list
+ * - Quantities match or exceed what's needed
+ * - Units of measure are identical
  *
- * If any required ingredient is missing or insufficient, the recipe is skipped.
+ * A recipe is shown only if all its ingredients meet these conditions.
  */
 void RecipeManager::showAvailableRecipes() const
 {
@@ -244,15 +242,15 @@ void RecipeManager::showAvailableRecipes() const
 }
 
 /**
- * @brief Allows the user to select a recipe and view its full details.
+ * @brief Allows the user to select a recipe and view full details.
  *
- * Displays a numbered list of all available recipes. The user selects one by number.
- * If the selection is valid, the function shows:
+ * Lists all available recipes and prompts the user to choose one by number.
+ * On valid selection, displays:
  * - Recipe name
- * - List of required ingredients with quantities and units
- * - Full preparation instructions
+ * - Required ingredients (name, quantity, unit)
+ * - Instructions
  *
- * If there are no recipes or the selection is invalid, appropriate messages are shown.
+ * If no recipes are available or the selection is invalid, appropriate messages are shown.
  */
 void RecipeManager::selectRecipe()
 {
