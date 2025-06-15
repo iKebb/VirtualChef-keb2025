@@ -13,7 +13,7 @@
 #include <algorithm>
 #include <cctype>
 #include "../imports/nlohmann/json.hpp"
-#include "trim.hpp"
+#include "utils.hpp"
 
 using json = nlohmann::json;
 
@@ -91,20 +91,21 @@ void RecipeManager::manuallyAddIngredients()
     ingredients.push_back({name, quantity, unit});
     std::cout << "Ingredient " << name << " added successfully!" << std::endl;
 
+    /// METHOD UNDER CHANGES, NOT AVAILABLE TO USE
     bool validReponse = false;
     while (!validReponse)
     {
-      std::cout << "Whant to add another ingredient? (y/n): " << std::endl;
-      std::string c;
-      std::cin >> c;
-      c = trim(c);
-      std::transform(c.begin(), c.end(), c.begin(), ::tolower);
+      std::cout << "Whant to add another ingredient? " << std::endl;
+      std::cout << "1. Yes" << std::endl;
+      std::cout << "2. No" << std::endl;
+      int choice;
+      std::cin >> choice;
 
-      if (c == "y" || c == "yes")
+      if (!getIntegerInput(choice, 1, 2))
       {
         validReponse = true;
       }
-      else if (c == "n" || c == "no")
+      else if (choice == 1)
       {
         validReponse = false;
         s = false;
@@ -112,7 +113,7 @@ void RecipeManager::manuallyAddIngredients()
       }
       else
       {
-        std::cout << "Please input 'y/yes' or 'n/no'" << std::endl;
+        std::cout << "Please input '1' for 'yes' or '2' for 'no'" << std::endl;
       }
     };
   }
@@ -268,10 +269,8 @@ void RecipeManager::selectRecipe()
   }
   int choice;
   std::cout << "Select a recipe (number): ";
-  std::cin >> choice;
-  if (choice < 1 || choice > static_cast<int>(recipes.size()))
+  if (!getIntegerInput(choice, 1, static_cast<int>(recipes.size())))
   {
-    std::cout << "Invalid selection." << std::endl;
     return;
   }
   const Recipe &selected = recipes[choice - 1];

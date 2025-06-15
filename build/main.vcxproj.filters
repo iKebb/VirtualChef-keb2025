@@ -10,7 +10,7 @@
     <ClCompile Include="C:\Games\c_projects\UNIT_20\virtual_chef\src\recipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Games\c_projects\UNIT_20\virtual_chef\src\trim.cpp">
+    <ClCompile Include="C:\Games\c_projects\UNIT_20\virtual_chef\src\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

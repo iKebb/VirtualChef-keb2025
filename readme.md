@@ -82,6 +82,7 @@ This project is licensed under the MIT License. You can modify and distribute it
 - Crashes when entering non-numeric values for quantities.
 - Insufficient validation in the main menu and recipe selection.
 - 'Yes/No' confirmation does not break the loop correctly when entering "n".
+- Compiler error tolower() returns an int but it is asigned to a char.
 
 ## Future Improvements
 

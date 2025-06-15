@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include "../include/recipeManager.hpp"
-#include "../include/trim.hpp"
+#include "../include/utils.hpp"
 
 int main()
 {
@@ -23,8 +23,8 @@ int main()
    * @note Paths are relative to the current working directory.
    */
   RecipeManager rm;
-  const std::string ingredientsFile = "../../data/ingredients.txt";
-  const std::string recipesFile = "../../data/recipes.json";
+  const std::string ingredientsFile = "data/ingredients.txt";
+  const std::string recipesFile = "data/recipes.json";
   rm.loadIngredientsFromFile(ingredientsFile);
   rm.loadRecipesFromJson(recipesFile);
 
@@ -41,7 +41,11 @@ int main()
     std::cout << "6. Exit" << std::endl;
     std::cout << "Choose an option: ";
 
-    std::cin >> choice;
+    if (!getIntegerInput(choice, 1, 6))
+    {
+      continue;
+    };
+
     switch (choice)
     {
     case 1:
@@ -62,8 +66,6 @@ int main()
     case 6:
       std::cout << "Exiting program..." << std::endl; ///< Ends execution of program.
       break;
-    default:
-      std::cout << "Input a number between 1 and 6." << std::endl; ///< Dumb checker
     }
   } while (choice != 6);
 
