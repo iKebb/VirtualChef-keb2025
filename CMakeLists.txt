@@ -7,6 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_DEBUG_TYPE Debug)
 
 # Configuración de flags por tipo de compilador
+# https://github.com/civetweb/civetweb/issues/1024
+# >>> me daba un error de compilación con la flag -Wextra (error D8021)
+# >>> con esta cfg sacada del git adjunto, el programa compila y ejecuta sin problema.
 if (MSVC)
     add_compile_options(/W4 /WX)   
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")

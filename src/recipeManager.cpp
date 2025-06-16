@@ -86,7 +86,7 @@ void RecipeManager::manuallyAddIngredients()
     std::getline(std::cin >> std::ws, name);
 
     std::cout << "Quantity: ";
-    if (!getIntegerInput(quantity, 1, 999999))
+    if (!getIntegerInput(quantity, 1, 1000))
     {
       std::cout << "Invalid number. Please enter a natural (positive) number" << std::endl;
       continue;

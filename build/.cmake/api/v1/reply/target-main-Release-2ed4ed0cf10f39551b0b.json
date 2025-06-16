@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/main.exe"
+			"path" : "Release/main.exe"
 		},
 		{
-			"path" : "Debug/main.pdb"
+			"path" : "Release/main.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -30,25 +30,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 26,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 27,
+				"line" : 30,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 11,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 17,
+				"line" : 20,
 				"parent" : 0
 			}
 		]
@@ -59,7 +59,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /MTd -std:c++17"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG -std:c++17"
 				},
 				{
 					"backtrace" : 3,
@@ -121,11 +121,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /MTd",
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO",
 				"role" : "flags"
 			},
 			{
