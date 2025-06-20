@@ -23,3 +23,8 @@ struct Ingredient
   int quantity;     ///< Quantity available or required
   std::string unit; ///< Unit of measurement (e.g., "grams", "ml", "units")
 };
+
+struct SimpleIngredient
+{
+  std::string name;
+};

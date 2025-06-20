@@ -25,8 +25,8 @@
 class RecipeManager
 {
 private:
-  std::vector<Recipe> recipes;         ///< Collection of all loaded recipes
-  std::vector<Ingredient> ingredients; ///< Collection of all loaded ingredients
+  std::vector<Recipe> recipes;               ///< Collection of all loaded recipes
+  std::vector<SimpleIngredient> ingredients; ///< Collection of all loaded ingredients
 
 public:
   /**

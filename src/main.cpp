@@ -27,8 +27,8 @@ int main()
    * @note Paths are relative to the current working directory.
    */
   RecipeManager rm;
-  const std::string ingredientsFile = "data/ingredients.txt";
-  const std::string recipesFile = "data/recipes.json";
+  const std::string ingredientsFile = "../data/ingredients.txt";
+  const std::string recipesFile = "../data/recipes.json";
   rm.loadIngredientsFromFile(ingredientsFile);
   rm.loadRecipesFromJson(recipesFile);
 
@@ -42,10 +42,11 @@ int main()
     std::cout << "3. Select a recipe" << std::endl;
     std::cout << "4. Show all ingredients" << std::endl;
     std::cout << "5. Add ingredients manually" << std::endl;
-    std::cout << "6. Exit" << std::endl;
+    std::cout << "6. Load ingredients from file" << std::endl;
+    std::cout << "7. Exit" << std::endl;
     std::cout << "Choose an option: ";
 
-    if (!getIntegerInput(choice, 1, 6))
+    if (!getIntegerInput(choice, 1, 7))
     {
       continue;
     };
@@ -68,10 +69,16 @@ int main()
       rm.manuallyAddIngredients(); ///< Allows the user to manually add an ingredient to the program.
       break;
     case 6:
+      std::cout << "To load new ingredients from a file, drop a txt or a csv with ingredients on 'data' folder";
+      std::cout << " with the format: \negg\nsalt\npepper\netc...\n " << std::endl;
+      std::cout << "Loading ingredients..." << std::endl;
+      rm.loadIngredientsFromFile(recipesFile);
+      break;
+    case 7:
       std::cout << "Exiting program..." << std::endl; ///< Ends execution of program.
       break;
     }
-  } while (choice != 6);
+  } while (choice != 7);
 
   return 0;
 };

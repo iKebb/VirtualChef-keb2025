@@ -42,19 +42,17 @@ void RecipeManager::loadIngredientsFromFile(const std::string &filename)
     std::cerr << "File " << filename << " not found or cannot be opened." << std::endl;
     return;
   }
+
   std::string line;
   while (std::getline(ingredientsFile, line))
   {
     std::istringstream ss(line);
-    std::string name, qtyString, unit;
-    if (std::getline(ss, name, ',') &&
-        std::getline(ss, qtyString, ',') &&
-        std::getline(ss, unit, ','))
+    std::string name;
+
+    if (std::getline(ss, name, ','))
     {
       name = trim(name);
-      unit = trim(unit);
-      int quantity = std::stoi(trim(qtyString));
-      ingredients.push_back({name, quantity, unit});
+      ingredients.push_back({name});
     }
   }
 }
@@ -77,25 +75,13 @@ void RecipeManager::manuallyAddIngredients()
   bool isAdd = true;
   while (isAdd)
   {
-    std::string name, unit;
-    int quantity;
-
     std::cout << "Adding a new ingredient." << std::endl;
 
+    std::string name;
     std::cout << "Ingredient name: ";
     std::getline(std::cin >> std::ws, name);
 
-    std::cout << "Quantity: ";
-    if (!getIntegerInput(quantity, 1, 1000))
-    {
-      std::cout << "Invalid number. Please enter a natural (positive) number" << std::endl;
-      continue;
-    }
-
-    std::cout << "Unit: ";
-    std::getline(std::cin >> std::ws, unit);
-
-    ingredients.push_back({name, quantity, unit});
+    ingredients.push_back({name});
     std::cout << "Ingredient " << name << " added successfully!" << std::endl;
 
     int choice;
@@ -103,7 +89,7 @@ void RecipeManager::manuallyAddIngredients()
     {
       std::cout << "1. Yes\n";
       std::cout << "2. No\n";
-      std::cout << "Want to add another ingredient? (1/2): " << std::endl;
+      std::cout << "Want to add another ingredient? (1/2): ";
     } while (!getIntegerInput(choice, 1, 2));
 
     if (choice == 2)
@@ -130,9 +116,7 @@ void RecipeManager::showAllIngredients()
             << std::endl;
   for (const auto &ingredient : ingredients)
   {
-    std::cout << "- " << ingredient.name
-              << ": Quantity: " << ingredient.quantity
-              << " " << ingredient.unit << std::endl;
+    std::cout << "- " << ingredient.name << std::endl;
   }
   std::cout << std::endl;
 }
@@ -219,9 +203,7 @@ void RecipeManager::showAvailableRecipes() const
       bool found = false;
       for (const auto &haveIngr : ingredients)
       {
-        if (reqIngr.name == haveIngr.name &&
-            reqIngr.unit == haveIngr.unit &&
-            haveIngr.quantity >= reqIngr.quantity)
+        if (reqIngr.name == haveIngr.name)
         {
           found = true;
           break;
